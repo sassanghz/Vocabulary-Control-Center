@@ -34,6 +34,38 @@ public class Main{
                 System.out.println(" 0  Exit");
                 System.out.println("---------------------------");
                 System.out.println("Enter Your Choice:");
+                int choice1 = sc.nextInt();
+
+                switch (choice1) {
+                    case 0:
+                        System.out.println("Exiting the Program!");
+                        System.exit(0);
+                        break;
+                
+                    default:
+                        break;
+                }
+
+            case 2:
+                System.out.println("---------------------------");
+                System.out.println("\t + Pick a topic ");
+                System.out.println("---------------------------");
+                System.out.println(" 1  Sports");
+                System.out.println(" 2  Food");
+                System.out.println(" 0  Exit");
+                System.out.println("---------------------------");
+                System.out.println("Enter Your Choice:");
+                int choice2 = sc.nextInt();
+
+                switch (choice2) {
+                    case 0:
+                        System.out.println("Exiting the Program!");
+                        System.exit(0);
+                        break;
+                
+                    default:
+                        break;
+                }
         
             default:
                 break;
