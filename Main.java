@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         System.out.println("---------------------------------");
-        System.out.println("\t + Vocabulary Control Center ");
+        System.out.println("    Vocabulary Control Center ");
         System.out.println("---------------------------------");
         System.out.println("1  browse a topic");
         System.out.println("2  insert a new topic before another one");
@@ -27,7 +27,7 @@ public class Main{
 
             case 1:
                 System.out.println("---------------------------");
-                System.out.println("\t + Pick a topic ");
+                System.out.println("      Pick a topic ");
                 System.out.println("---------------------------");
                 System.out.println(" 1  Sports");
                 System.out.println(" 2  Food");
