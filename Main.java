@@ -24,6 +24,16 @@ public class Main{
                 System.out.println("Exiting the Program!");
                 System.exit(0);
                 break;
+
+            case 1:
+                System.out.println("---------------------------");
+                System.out.println("\t + Pick a topic ");
+                System.out.println("---------------------------");
+                System.out.println(" 1  Sports");
+                System.out.println(" 2  Food");
+                System.out.println(" 0  Exit");
+                System.out.println("---------------------------");
+                System.out.println("Enter Your Choice:");
         
             default:
                 break;
