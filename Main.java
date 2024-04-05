@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         System.out.println("---------------------------------");
@@ -16,6 +16,20 @@ public class Main{
         System.out.println("0  exit");
         System.out.println("---------------------------------");
         System.out.println("Enter Your Choice: ");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 0:
+                System.out.println("Exiting the Program!");
+                System.exit(0);
+                break;
+        
+            default:
+                break;
+        }
+
+        sc.close();
 
     }
 }
