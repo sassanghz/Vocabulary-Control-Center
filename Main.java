@@ -45,7 +45,7 @@ public class Main{
                     default:
                         break;
                 }
-
+                break;
             case 2:
                 System.out.println("---------------------------");
                 System.out.println("\t + Pick a topic ");
@@ -66,7 +66,30 @@ public class Main{
                     default:
                         break;
                 }
-        
+                break;
+
+            case 3:
+                System.out.println("---------------------------");
+                System.out.println("\t + Pick a topic ");
+                System.out.println("---------------------------");
+                System.out.println(" 1  Fruits");
+                System.out.println(" 2  Sports");
+                System.out.println(" 3 Food");
+                System.out.println(" 0  Exit");
+                System.out.println("---------------------------");
+                System.out.println("Enter Your Choice:");
+                int choice3 = sc.nextInt();
+
+                switch (choice3) {
+                    case 0:
+                    System.out.println("Exiting the Program!");
+                    System.exit(0);
+                    break;
+                
+                    default:
+                        break;
+                }
+                break;
             default:
                 break;
         }
