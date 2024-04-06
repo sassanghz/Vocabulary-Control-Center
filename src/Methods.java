@@ -23,17 +23,70 @@ public class Methods {
         if (choice > 0 && choice <= vocabList.size()) {
             System.out.println(index + ": " + vocabList.get(choice - 1));
         } else if (choice != 0) {
-            System.out.println("Invalid choice.");
+            System.out.println("option out of range, try again!");
         }
     }
 
-    public static void insertTopicBefore(){}
+    public static void insertTopicBefore(){
+        System.out.println("---------------------------");
+        System.out.println("      Pick a topic ");
+        System.out.println("---------------------------");
+        int index = 1;
+        for (Vocab vocab : vocabList) {
+            System.out.println(index + ". " + vocab.getTopic());
+            index++;
+        }
+        System.out.println("0. Exit");
+        System.out.print("Enter Your Choice: ");
+        String choice = sc.nextLine().trim();
+        System.out.println("Enter a topic name:");
+    }
 
-    public static void insertTopicAfter(){}
+    public static void insertTopicAfter(){
+        System.out.println("---------------------------");
+        System.out.println("      Pick a topic ");
+        System.out.println("---------------------------");
+        int index = 1;
+        for (Vocab vocab : vocabList) {
+            System.out.println(index + ". " + vocab.getTopic());
+            index++;
+        }
+        System.out.println("0. Exit");
+        System.out.print("Enter Your Choice: ");
+        String choice = sc.nextLine().trim();
+        System.out.println("Enter a topic name:");
+    }
 
-    public static void removeTopic(){}
+    public static void removeTopic(){
+        System.out.println("---------------------------");
+        System.out.println("      Pick a topic ");
+        System.out.println("---------------------------");
+        int index = 1;
+        for (Vocab vocab : vocabList) {
+            System.out.println(index + ". " + vocab.getTopic());
+            index++;
+        }
+        System.out.println("0. Exit");
+        System.out.print("Enter Your Choice: ");
+        String choice = sc.nextLine().trim();
+    }
 
-    public static void modifyTopic(){}
+    public static void modifyTopic(){
+        System.out.println("---------------------------");
+        System.out.println("      Pick a topic ");
+        System.out.println("---------------------------");
+        int index = 1;
+        for (Vocab vocab : vocabList) {
+            System.out.println(index + ". " + vocab.getTopic());
+            index++;
+        }
+        System.out.println("0. Exit");
+        System.out.print("Enter Your Choice: ");
+        String choice = sc.nextLine().trim();
+        System.out.println("---------------------------");
+        System.out.println("      Modify Topics Menu ");
+        System.out.println("---------------------------");
+    }
 
     public static void searchTopicsForWord(){}
 
