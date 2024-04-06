@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main{
 
     private static LinkedList<Vocab> vocabList = new LinkedList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
        
         int choice;
@@ -146,6 +146,25 @@ public class Main{
         System.out.println("9  save to file");
         System.out.println("0  exit");
         System.out.println("---------------------------------");
+    }
+
+    private static void browseTopic() {
+        System.out.println("---------------------------");
+        System.out.println("      Pick a topic ");
+        System.out.println("---------------------------");
+        int index = 1;
+        for (Vocab vocab : vocabList) {
+            System.out.println(index + ". " + vocab.getTopic());
+            index++;
+        }
+        System.out.println("0. Exit");
+        System.out.print("Enter Your Choice: ");
+        int choice = sc.nextInt();
+        if (choice > 0 && choice <= vocabList.size()) {
+            System.out.println(vocabList.get(choice - 1));
+        } else if (choice != 0) {
+            System.out.println("Invalid choice.");
+        }
     }
 
     
