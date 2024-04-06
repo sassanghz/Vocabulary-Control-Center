@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -41,9 +42,21 @@ public class Vocab {
     }
 
     @Override
-    public String toString(){
-        return topic + ": " + words.toString();
+    public String toString() {
+        String result = topic + ": ";
+
+        if (words.isEmpty()) {
+            return result + "No words in this vocab";
+        }
+
+        int count = 1;
+        for (String word : words) {
+            result += "\n" + count++ + ": " + word;
+        }
+
+        return result;
     }
+
 
     
 }

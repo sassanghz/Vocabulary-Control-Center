@@ -1,4 +1,6 @@
 package src;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.Scanner;
 public class Methods {
@@ -19,7 +21,7 @@ public class Methods {
         System.out.print("Enter Your Choice: ");
         int choice = sc.nextInt();
         if (choice > 0 && choice <= vocabList.size()) {
-            System.out.println(vocabList.get(choice - 1));
+            System.out.println(index + ": " + vocabList.get(choice - 1));
         } else if (choice != 0) {
             System.out.println("Invalid choice.");
         }
@@ -35,7 +37,32 @@ public class Methods {
 
     public static void searchTopicsForWord(){}
 
-    public static void loadFromFile(){}
+    public static void loadFromFile(){
+        System.out.print("Enter the name of the input file: ");
+        String fileName = sc.nextLine().trim();
+        Scanner fileScanner = null;
+
+        try{
+            fileScanner = new Scanner(new FileReader(fileName));
+            vocabList.clear();
+            
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine().trim();
+                if (line.startsWith("#")) {
+                    Vocab vocab = new Vocab(line.substring(1));
+                    vocabList.add(vocab);
+                } else if (!line.isEmpty()) {
+                    vocabList.getLast().addWord(line);
+                }
+            }
+            System.out.println("Done loading.");
+
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }finally{
+            fileScanner.close();
+        }
+    }
 
     public static void showWordsStartingWithLetter(){}
 
