@@ -17,11 +17,11 @@ public class Main{
                 case 1:
                     browseTopic();
                     break;
-                case 2;
+                case 2:
                     insertTopicBefore();
                     break;
-                case 3;
-                    insertTopicBefore();
+                case 3:
+                    insertTopicAfter();
                     break;
                 case 4:
                     removeTopic();
@@ -167,5 +167,19 @@ public class Main{
         }
     }
 
-    
+    private static void insertTopicBefore(){}
+
+    private static void insertTopicAfter(){}
+
+    private static void removeTopic(){}
+
+    private static void modifyTopic(){}
+
+    private static void searchTopicsForWord(){}
+
+    private static void loadFromFile(){}
+
+    private static void showWordsStartingWithLetter(){}
+
+    private static void saveToFile(){}
 }
