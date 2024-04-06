@@ -40,6 +40,7 @@ public class Methods {
         System.out.print("Enter Your Choice: ");
         String choice = sc.nextLine().trim();
         System.out.println("Enter a topic name:");
+        //insert a node 'topic' before the selected topic name and add it
     }
 
     public static void insertTopicAfter(){
