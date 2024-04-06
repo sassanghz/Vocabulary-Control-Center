@@ -2,9 +2,52 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
        
-        System.out.println("Enter Your Choice: ");
         Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
+        int choice;
+
+        do{
+            displayMenu();
+            System.out.println("Enter Your Choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    browseTopic();
+                    break;
+                case 2;
+                    insertTopicBefore();
+                    break;
+                case 3;
+                    insertTopicBefore();
+                    break;
+                case 4:
+                    removeTopic();
+                    break;
+                case 5:
+                    modifyTopic();
+                    break;
+                case 6:
+                    searchTopicsForWord();
+                    break;
+                case 7:
+                    loadFromFile();
+                    break;
+                case 8:
+                    showWordsStartingWithLetter();
+                    break;
+                case 9:
+                    saveToFile();
+                    break;
+                case 0:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+
+
+        }while(choice != 0);
 
         switch (choice) {
             case 0:
@@ -101,4 +144,6 @@ public class Main{
         System.out.println("0  exit");
         System.out.println("---------------------------------");
     }
+
+    
 }
