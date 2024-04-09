@@ -120,10 +120,45 @@ public class Methods {
 
                 break;
             case "r":
-                ArrayList<String> removeFromList = new ArrayList<>();
+                
+                System.out.println("Enter the word to remove:");
+                String wordToRemove = sc.nextLine().trim();
+
+                System.out.println("Select the topic to remove the word from:");
+                int topicChoice2 = Integer.parseInt(sc.nextLine().trim());
+
+                if(topicChoice2 >= 1 && topicChoice2 <= vocabList.size()){
+                    Vocab selectedTopic2 = vocabList.get(topicChoice2 - 1);
+                    selectedTopic2.removeWord(wordToRemove);
+                    System.out.println("Word has been removed from the topic: " + selectedTopic2.getTopic());
+                }else{
+                    System.out.println("Invalid topic choice.");
+                }
                 break;
             case "c":
-                ArrayList<String> changeList = new ArrayList<>();
+                
+                System.out.println("Enter the word to change:");
+                String wordToChange = sc.nextLine().trim();
+
+                System.out.println("Select the topic to change the word from:");
+                int topicChoice3 = Integer.parseInt(sc.nextLine().trim());
+
+                if(topicChoice3 >= 1 && topicChoice3 <= vocabList.size()){
+                    Vocab seleectedTopic3 = vocabList.get(topicChoice3 - 1);
+                    LinkedList<String> wordsList = seleectedTopic3.getWords();
+                    
+                    if(wordsList.contains(wordToChange)){
+                        System.out.println("Enter the new word:");
+                        String newWord = sc.nextLine().trim();
+
+                        wordsList.set(wordsList.indexOf(wordToChange), newWord);
+                        System.out.println("Word changed in the topic: " + seleectedTopic3.getTopic());
+                    }else{
+                        System.out.println("Word not found in the selected topic.");
+                    }
+                }else{
+                    System.out.println("Invalid topic choice.");
+                }
                 break;
             default:
                 System.out.println("Incorrect User Input!");
