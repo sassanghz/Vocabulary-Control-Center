@@ -73,7 +73,16 @@ public class Methods {
         }
         System.out.println("0. Exit");
         System.out.print("Enter Your Choice: ");
-        String choice = sc.nextLine().trim();
+        int topicChoice = readTopicChoice();
+        System.out.println("---------------------------");
+        if(topicChoice >= 1 && topicChoice <= vocabList.size()){
+            Vocab selectedTopic = vocabList.remove(topicChoice - 1);
+            System.out.println("Topic has been removed from list: " + selectedTopic.getTopic());
+        }else{
+            System.out.println("Invalid topic choice.");
+        }
+
+
     }
 
     public static void modifyTopic(){
