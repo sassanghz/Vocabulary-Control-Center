@@ -179,7 +179,7 @@ public class Methods {
         System.out.println(" r remove a word");
         System.out.println(" c change a word");
         System.out.println(" 0 Exit");
-        System.out.println("--------------------------");
+        System.out.print("--------------------------");
         System.out.print("Enter Your Choice: ");
         String choice5 = sc.next().toLowerCase();
         sc.nextLine(); // Consume the newline character
@@ -250,7 +250,7 @@ public class Methods {
     
 
     public static void searchTopicsForWord(){
-        
+        sc.nextLine();
         System.out.print("Enter the word to search: ");
         String wordToSearch = sc.nextLine().trim();
         
@@ -325,8 +325,8 @@ public class Methods {
 
     public static void saveToFile(){
         // USER INPUT
+        sc.nextLine(); // Consume newline character
         System.out.print("Enter the name of the output file: ");
-        
         String fileName = sc.nextLine().trim();
         
         // WRITE TO FILE
