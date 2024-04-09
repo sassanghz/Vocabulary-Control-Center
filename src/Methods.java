@@ -31,7 +31,7 @@ public class Methods {
         }
     }
 
-    public static void insertTopicBefore(){
+    public static void insertTopicBefore() {
         System.out.println("---------------------------");
         System.out.println("      Pick a topic ");
         System.out.println("---------------------------");
@@ -42,10 +42,50 @@ public class Methods {
         }
         System.out.println("0. Exit");
         System.out.print("Enter Your Choice: ");
-        String choice = sc.nextLine().trim();
-        System.out.println("Enter a topic name:");
-        //insert a node 'topic' before the selected topic name and add it
-    }
+        int choice = sc.nextInt();
+        sc.nextLine(); // Consume the newline character after reading int
+    
+        if (choice == 0) {
+            return; // Exit if the choice is 0
+        } else if (choice > 0 && choice <= vocabList.size()) {
+            // Get the new topic name from the user
+            System.out.println("Enter a new topic name:");
+            String newTopicName = sc.nextLine().trim();
+    
+            // Check if the new topic already exists
+            boolean topicExists = false;
+            for (Vocab vocab : vocabList) {
+                if (vocab.getTopic().equalsIgnoreCase(newTopicName)) {
+                    topicExists = true;
+                    break;
+                }
+            }
+    
+            if (topicExists) {
+                System.out.println("Topic already exists.");
+            } else {
+                // Create a new Vocab object with the new topic
+                Vocab newTopic = new Vocab(newTopicName);
+    
+                // Add words to the new topic until the user presses enter
+                System.out.println("Enter words for the new topic. Press Enter to finish.");
+                while (true) {
+                    String word = sc.nextLine().trim();
+                    if (word.isEmpty()) {
+                        break; // Exit the loop if the user presses Enter
+                    }
+                    newTopic.addWord(word);
+                }
+    
+                // Add the new topic to the beginning of the vocabList
+                vocabList.addFirst(newTopic);
+                System.out.println("New topic added successfully.");
+            }
+        } else {
+            System.out.println("Invalid choice.");
+            return;
+        }
+    }    
 
     public static void insertTopicAfter(){
         System.out.println("---------------------------");
@@ -58,8 +98,44 @@ public class Methods {
         }
         System.out.println("0. Exit");
         System.out.print("Enter Your Choice: ");
-        String choice = sc.nextLine().trim();
-        System.out.println("Enter a topic name:");
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        if(choice == 0){
+            return;
+        }else if(choice > 0 && choice <= vocabList.size()){
+            System.out.println("Enter a new topic name:");
+            String newTopic = sc.nextLine().trim();
+
+            boolean topicexists = false;
+            for(Vocab vocab: vocabList){
+                if(vocab.getTopic().equalsIgnoreCase(newTopic)){
+                    topicexists = true;
+                    break;
+                }
+            }
+
+            if(topicexists){
+                System.out.println("Topic already exists.");
+            }else{
+                Vocab newtopic = new Vocab(newTopic);
+
+                System.out.println("Enter words for the new topic. Press Enter to finish:");
+                while(true){
+                    String word = sc.nextLine().trim();
+                    if(word.isEmpty()){
+                        break;
+                    }
+                    newtopic.addWord(word);
+                }
+
+                vocabList.addLast(newtopic);
+                System.out.println("New topic added successfully.");
+            }
+        }else{
+            System.out.println("Invalid choice.");
+            return;
+        }
     }
 
     public static void removeTopic(){
@@ -72,6 +148,7 @@ public class Methods {
             index++;
         }
         System.out.println("0. Exit");
+        sc.nextLine();
         System.out.print("Enter Your Choice: ");
         int topicChoice = readTopicChoice();
         System.out.println("---------------------------");
@@ -81,8 +158,6 @@ public class Methods {
         }else{
             System.out.println("Invalid topic choice.");
         }
-
-
     }
 
     public static void modifyTopic(){
