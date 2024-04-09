@@ -30,13 +30,19 @@ public class Vocab {
     }
 
     public List<String> getWordsStartingWith(char letter){
+        /*
+         It filters the words in that specific vocabulary (Vocab object)
+          to include only those words that start with the specified letter.
+         */
         List<String> result = new ArrayList<>();
-
+        // Goes through all the words in the list to check if they match with the inputted letter
         for(String word: words){
             if(word.charAt(0) == letter){
+
                 result.add(word);
             }
         }
+        //this line sorts the list in alphabetical order.
         Collections.sort(result);
         return result;
     }

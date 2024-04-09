@@ -128,10 +128,11 @@ public class Methods {
         //It reads the input line as a string and extracts the first character
         
         ArrayList<String> filteredWords = new ArrayList<>();
-        
+        // The enhanced for loop iterates through each Vocab object in vocabList
         for (Vocab vocab : vocabList) {
             //filters the words in that vocabulary to include only those starting with the specified letter
             filteredWords.addAll(vocab.getWordsStartingWith(letter));
+            // addAll is a method of arrayList which is used to add all these words to the list
         }
         
         System.out.println("Filtered words:");
