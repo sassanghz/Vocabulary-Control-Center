@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 public class Methods {
@@ -121,7 +122,27 @@ public class Methods {
         }
     }
 
-    public static void showWordsStartingWithLetter(){}
+    public static void showWordsStartingWithLetter(){
+        System.out.print("Enter the letter to filter words: ");
+        char letter = sc.nextLine().charAt(0);
+        //It reads the input line as a string and extracts the first character
+        
+        ArrayList<String> filteredWords = new ArrayList<>();
+        
+        for (Vocab vocab : vocabList) {
+            //filters the words in that vocabulary to include only those starting with the specified letter
+            filteredWords.addAll(vocab.getWordsStartingWith(letter));
+        }
+        
+        System.out.println("Filtered words:");
+        
+        for (String word : filteredWords) {
+            /*
+             provides a way for the user to see all the words in the vocabulary that start with a particular letter they specify
+             */
+            System.out.println(word);
+        }
+    }
 
     public static void saveToFile(){
         
@@ -130,13 +151,17 @@ public class Methods {
         String fileName = sc.nextLine().trim();
         
         try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+          
             for (Vocab vocab : vocabList) {
                 writer.println("# " + vocab.getTopic());
+          
                 for (String word : vocab.getWords()) {
                     writer.println(word);
                 }
             }
+        
             System.out.println("Data saved to file successfully.");
+        
         } catch (IOException e) {
             System.out.println("Error saving data to file.");
         }
