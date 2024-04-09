@@ -91,6 +91,28 @@ public class Methods {
         System.out.println("---------------------------");
         System.out.println("      Modify Topics Menu ");
         System.out.println("---------------------------");
+        System.out.println(" a add a word");
+        System.out.println(" r remove a word");
+        System.out.println(" c change a word");
+        System.out.println(" 0 Exit");
+        System.out.println("--------------------------");
+        System.out.print("Enter Your Choice: ");
+        String choice5 = sc.next().toLowerCase();
+
+        switch(choice5){
+            case "0":
+                break;
+            case "a":
+                break;
+            case "r":
+                break;
+            case "c":
+                break;
+            default:
+                System.out.println("Incorrect User Input!");
+                break;
+        }
+
     }
 
     public static void searchTopicsForWord(){
@@ -103,9 +125,9 @@ public class Methods {
         for (Vocab vocab : vocabList) {
         
             if (vocab.getWords().contains(wordToSearch)) {
-                System.out.println(vocab.getTopic());
-            }else{
-                System.out.println("Word not found!");
+                System.out.println("Topic found in: " + vocab.getTopic());
+            }else if(!vocab.getWords().contains(wordToSearch)){
+                System.out.println(wordToSearch + " not found in " + vocab.getTopic());
             }
         }
     }
