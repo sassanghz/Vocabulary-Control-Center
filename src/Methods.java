@@ -153,17 +153,21 @@ public class Methods {
     }
 
     public static void saveToFile(){
-        
+        // USER INPUT
         System.out.print("Enter the name of the output file: ");
         
         String fileName = sc.nextLine().trim();
         
+        // WRITE TO FILE
         try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
           
+            // ITERATE THROUGH THE LIST
             for (Vocab vocab : vocabList) {
+                //WRITE THE TOPIC
                 writer.println("# " + vocab.getTopic());
-          
+                // ITERATE THROUGH THE WORDS IN LIST
                 for (String word : vocab.getWords()) {
+                    // WRITE WORDS
                     writer.println(word);
                 }
             }
