@@ -96,20 +96,26 @@ public class Methods {
     public static void searchTopicsForWord(){}
 
     public static void loadFromFile(){
+        // USER INPUT
         System.out.print("Enter the name of the input file: ");
         String fileName = sc.nextLine().trim();
         Scanner fileScanner = null;
 
         try{
+            //READ FILE
             fileScanner = new Scanner(new FileReader(fileName));
             vocabList.clear();
             
+            // READ EACH LINE
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine().trim();
+                // SPECIFY WHICH LINE TO PICK
                 if (line.startsWith("#")) {
                     Vocab vocab = new Vocab(line.substring(1));
+                    // ADD TO THE ARRAYLIST
                     vocabList.add(vocab);
                 } else if (!line.isEmpty()) {
+                    // ADD REST OF LINES
                     vocabList.getLast().addWord(line);
                 }
             }
@@ -118,6 +124,7 @@ public class Methods {
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }finally{
+            // CLOSE FILE
             fileScanner.close();
         }
     }
