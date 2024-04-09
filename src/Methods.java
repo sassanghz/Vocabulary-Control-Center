@@ -93,7 +93,22 @@ public class Methods {
         System.out.println("---------------------------");
     }
 
-    public static void searchTopicsForWord(){}
+    public static void searchTopicsForWord(){
+        
+        System.out.print("Enter the word to search: ");
+        String wordToSearch = sc.nextLine().trim();
+        
+        System.out.println("Topics containing '" + wordToSearch + "':");
+        
+        for (Vocab vocab : vocabList) {
+        
+            if (vocab.getWords().contains(wordToSearch)) {
+                System.out.println(vocab.getTopic());
+            }else{
+                System.out.println("Word not found!");
+            }
+        }
+    }
 
     public static void loadFromFile(){
         // USER INPUT
