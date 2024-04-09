@@ -98,18 +98,18 @@ public class Methods {
         System.out.println("--------------------------");
         System.out.print("Enter Your Choice: ");
         String choice5 = sc.next().toLowerCase();
-
+        sc.nextLine(); // Consume the newline character
+    
         switch(choice5){
             case "0":
                 break;
             case "a":
-                
                 System.out.println("Enter the word to add:");
                 String wordToAdd = sc.nextLine().trim();
-
+    
                 System.out.println("Select the topic to add the word to:");
-                int topicChoice = Integer.parseInt(sc.nextLine().trim());
-
+                int topicChoice = readTopicChoice();
+    
                 if(topicChoice >= 1 && topicChoice <= vocabList.size()){
                     Vocab selectedTopic = vocabList.get(topicChoice - 1);
                     selectedTopic.addWord(wordToAdd);
@@ -117,16 +117,14 @@ public class Methods {
                 }else{
                     System.out.println("Invalid topic choice.");
                 }
-
                 break;
             case "r":
-                
                 System.out.println("Enter the word to remove:");
                 String wordToRemove = sc.nextLine().trim();
-
+    
                 System.out.println("Select the topic to remove the word from:");
-                int topicChoice2 = Integer.parseInt(sc.nextLine().trim());
-
+                int topicChoice2 = readTopicChoice();
+    
                 if(topicChoice2 >= 1 && topicChoice2 <= vocabList.size()){
                     Vocab selectedTopic2 = vocabList.get(topicChoice2 - 1);
                     selectedTopic2.removeWord(wordToRemove);
@@ -136,23 +134,23 @@ public class Methods {
                 }
                 break;
             case "c":
-                
                 System.out.println("Enter the word to change:");
                 String wordToChange = sc.nextLine().trim();
-
+    
+                sc.nextLine();
                 System.out.println("Select the topic to change the word from:");
-                int topicChoice3 = Integer.parseInt(sc.nextLine().trim());
-
+                int topicChoice3 = readTopicChoice();
+    
                 if(topicChoice3 >= 1 && topicChoice3 <= vocabList.size()){
-                    Vocab seleectedTopic3 = vocabList.get(topicChoice3 - 1);
-                    LinkedList<String> wordsList = seleectedTopic3.getWords();
+                    Vocab selectedTopic3 = vocabList.get(topicChoice3 - 1);
+                    LinkedList<String> wordsList = selectedTopic3.getWords();
                     
                     if(wordsList.contains(wordToChange)){
                         System.out.println("Enter the new word:");
                         String newWord = sc.nextLine().trim();
-
+    
                         wordsList.set(wordsList.indexOf(wordToChange), newWord);
-                        System.out.println("Word changed in the topic: " + seleectedTopic3.getTopic());
+                        System.out.println("Word changed in the topic: " + selectedTopic3.getTopic());
                     }else{
                         System.out.println("Word not found in the selected topic.");
                     }
@@ -164,8 +162,8 @@ public class Methods {
                 System.out.println("Incorrect User Input!");
                 break;
         }
-
     }
+    
 
     public static void searchTopicsForWord(){
         
@@ -266,5 +264,20 @@ public class Methods {
         } catch (IOException e) {
             System.out.println("Error saving data to file.");
         }
+    }
+
+    private static int readTopicChoice() {
+        int topicChoice = 0;
+        boolean validInput = false;
+        while (!validInput) {
+            System.out.print("Enter topic number: ");
+            try {
+                topicChoice = Integer.parseInt(sc.nextLine().trim());
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid topic number.");
+            }
+        }
+        return topicChoice;
     }
 }
