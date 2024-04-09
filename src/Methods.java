@@ -103,10 +103,27 @@ public class Methods {
             case "0":
                 break;
             case "a":
+                
+                System.out.println("Enter the word to add:");
+                String wordToAdd = sc.nextLine().trim();
+
+                System.out.println("Select the topic to add the word to:");
+                int topicChoice = Integer.parseInt(sc.nextLine().trim());
+
+                if(topicChoice >= 1 && topicChoice <= vocabList.size()){
+                    Vocab selectedTopic = vocabList.get(topicChoice - 1);
+                    selectedTopic.addWord(wordToAdd);
+                    System.out.println("Word has been added to the topic: " + selectedTopic.getTopic());
+                }else{
+                    System.out.println("Invalid topic choice.");
+                }
+
                 break;
             case "r":
+                ArrayList<String> removeFromList = new ArrayList<>();
                 break;
             case "c":
+                ArrayList<String> changeList = new ArrayList<>();
                 break;
             default:
                 System.out.println("Incorrect User Input!");
@@ -120,7 +137,7 @@ public class Methods {
         System.out.print("Enter the word to search: ");
         String wordToSearch = sc.nextLine().trim();
         
-        System.out.println("Topics containing '" + wordToSearch + "':");
+        System.out.println("Topics containing " + wordToSearch + ":");
         
         for (Vocab vocab : vocabList) {
         
