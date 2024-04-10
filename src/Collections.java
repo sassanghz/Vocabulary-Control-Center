@@ -1,24 +1,29 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 public abstract class Collections<T> implements Collection<T> {
     
-    protected Collections() {
-    }
+    protected Collections() {}
 
     public abstract Iterator<T> iterator();
 
     public abstract int size();
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isEmpty() {
         return size() == 0;
     }
 
+    
+    /** 
+     * @param o
+     * @return boolean
+     */
     public boolean contains(Object o) {
         Iterator<T> it = iterator();
         if (o==null) {
@@ -33,6 +38,11 @@ public abstract class Collections<T> implements Collection<T> {
         return false;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     public boolean remove(Object obj) {
         Iterator<T> it = iterator();
         if (obj==null) {
@@ -53,6 +63,11 @@ public abstract class Collections<T> implements Collection<T> {
         return false;
     }
 
+    
+    /** 
+     * @param collection
+     * @return boolean
+     */
     public boolean addAll(Collection<? extends T> collection) {
         boolean modified = false;
         for (T add : collection)
@@ -61,6 +76,10 @@ public abstract class Collections<T> implements Collection<T> {
         return modified;
     }
 
+    /**
+     * @return clear
+     */
+
     public void clear() {
         Iterator<T> iterate = iterator();
         while (iterate.hasNext()) {
@@ -68,9 +87,4 @@ public abstract class Collections<T> implements Collection<T> {
             iterate.remove();
         }
     }
-
-
-
-
-
 }

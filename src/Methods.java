@@ -149,7 +149,7 @@ public class Methods {
         }
         System.out.println("0. Exit");
         sc.nextLine();
-        System.out.print("Enter Your Choice: ");
+        System.out.println("Enter Your Choice: ");
         int topicChoice = readTopicChoice();
         System.out.println("---------------------------");
         if(topicChoice >= 1 && topicChoice <= vocabList.size()){
@@ -170,8 +170,6 @@ public class Methods {
             index++;
         }
         System.out.println("0. Exit");
-        System.out.println("Enter Your Choice: ");
-        String choice = sc.nextLine().trim();
         System.out.println("---------------------------");
         System.out.println("      Modify Topics Menu ");
         System.out.println("---------------------------");
@@ -247,7 +245,6 @@ public class Methods {
                 break;
         }
     }
-    
 
     public static void searchTopicsForWord() {
         sc.nextLine();
@@ -280,7 +277,6 @@ public class Methods {
             System.out.println("Word '" + wordToSearch + "' not found in any topic.");
         }
     }
-    
 
     public static void loadFromFile(){
         // USER INPUT

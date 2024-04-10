@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class Main{
 
     private static Scanner sc = new Scanner(System.in);
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args){
        
         int choice;

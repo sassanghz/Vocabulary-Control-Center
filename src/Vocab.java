@@ -18,14 +18,26 @@ public class Vocab {
         words = new LinkedList<>();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getTopic() {
         return topic;
     }
 
+    
+    /** 
+     * @return LinkedList<String>
+     */
     public LinkedList<String> getWords() {
         return words;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getSize(){
         return size;
     }
@@ -130,7 +142,4 @@ public class Vocab {
             this.prev = null;
         }
     }
-
-
-    
 }
