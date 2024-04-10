@@ -170,7 +170,7 @@ public class Methods {
             index++;
         }
         System.out.println("0. Exit");
-        System.out.print("Enter Your Choice: ");
+        System.out.println("Enter Your Choice: ");
         String choice = sc.nextLine().trim();
         System.out.println("---------------------------");
         System.out.println("      Modify Topics Menu ");
@@ -180,7 +180,7 @@ public class Methods {
         System.out.println(" c change a word");
         System.out.println(" 0 Exit");
         System.out.print("--------------------------");
-        System.out.print("Enter Your Choice: ");
+        System.out.println("Enter Your Choice: ");
         String choice5 = sc.next().toLowerCase();
         sc.nextLine(); // Consume the newline character
     
@@ -249,22 +249,38 @@ public class Methods {
     }
     
 
-    public static void searchTopicsForWord(){
+    public static void searchTopicsForWord() {
         sc.nextLine();
         System.out.print("Enter the word to search: ");
         String wordToSearch = sc.nextLine().trim();
-        
+    
         System.out.println("Topics containing " + wordToSearch + ":");
-        
+    
+        boolean wordFound = false; // Flag to track if the word is found in any topic
+    
         for (Vocab vocab : vocabList) {
-        
-            if (vocab.getWords().contains(wordToSearch)) {
+            boolean topicContainsWord = false; // Flag to track if the topic contains the word
+            System.out.println("Checking topic: " + vocab.getTopic());
+            for (String word : vocab.getWords()) {
+                System.out.println("Checking word: " + word);
+                if (word.equalsIgnoreCase(wordToSearch)) {
+                    topicContainsWord = true;
+                    wordFound = true; // Update the flag for the entire search
+                    break; // No need to continue checking other words in this topic
+                }
+            }
+            if (topicContainsWord) {
                 System.out.println("Topic found in: " + vocab.getTopic());
-            }else if(!vocab.getWords().contains(wordToSearch)){
+            } else {
                 System.out.println(wordToSearch + " not found in " + vocab.getTopic());
             }
         }
+    
+        if (!wordFound) {
+            System.out.println("Word '" + wordToSearch + "' not found in any topic.");
+        }
     }
+    
 
     public static void loadFromFile(){
         // USER INPUT
